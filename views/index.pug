@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title todolist
+    | &#x9;&#x9;
+    meta(charset='utf-8')
+  | &#x9;
+  body
+    form(action='http://127.0.0.1:5000/data1', method='POST')
+      input(name='todo', type='text')
+      | &#x9;&#x9;&#x9;
+      input(type='submit')
+    ul
+    for list_num in list
+      li= list_num
+    else
+      li sorry no data!
