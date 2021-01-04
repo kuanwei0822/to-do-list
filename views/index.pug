@@ -1,17 +1,19 @@
-doctype html
-html
-  head
-    title todolist
-    | &#x9;&#x9;
-    meta(charset='utf-8')
-  | &#x9;
-  body
-    form(action='http://127.0.0.1:5000/data1', method='POST')
-      input(name='todo', type='text')
-      | &#x9;&#x9;&#x9;
-      input(type='submit')
-    ul
-    for list_num in list
-      li= list_num
-    else
-      li sorry no data!
+extends ./layout_1
+
+block content
+      for items in message
+        li.list-group-item.list-group-item-warning.col-12
+          p.content=items
+          .delete_button.messageButton
+            img(src="http://localhost:5000/images/close.png")
+          .edit_button.messageButton
+            img(src="http://localhost:5000/images/edit.png")
+          input.updataInput.disappear(placeholder=items)
+          .updataButton.check_button.disappear
+            img(src='http://localhost:5000/images/check.png')
+          .updataButton.cancel_button.disappear
+            img(src='http://localhost:5000/images/cancel.png')
+
+
+      else
+        li.list-group-item.list-group-item-warning  尚未有待辦事項

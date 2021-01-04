@@ -2,77 +2,50 @@ doctype html(lang='en')
 head
     // Required meta tags
     meta(charset='utf-8')
-    |     
     meta(name='viewport', content='width=device-width, initial-scale=1')
     // Bootstrap CSS
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1', crossorigin='anonymous')
-    |     
-    style.
-      .list-group{
-      margin-bottom: 300px;
-      }
-    |     
+    // 自訂 CSS
+    link(rel='stylesheet', href='http://localhost:5000/stylesheets/style.css')
+    // 引入 jQuery CDN
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // 引入 js 檔 - get_id (引入 mongodb 中的 id & message 參數)
+    script(src='http://localhost:5000/javascripts/get_id.js')
+    // 引入 js 檔 - delete_button
+    script(src='http://localhost:5000/javascripts/delete_button.js')
+    // 引入 js 檔 - edit_button
+    script(src='http://localhost:5000/javascripts/edit_button.js')
     title Hello, world!
-  |   
-  body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      .container-fluid
-        a.navbar-brand(href='#') Navbar
-        |         
-        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+    body
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand.headTopic(href='http://127.0.0.1:5000/data') To do list
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
-        |         
-        #navbarSupportedContent.collapse.navbar-collapse
-          ul.navbar-nav.me-auto.mb-2.mb-lg-0
-            li.nav-item
-              a.nav-link.active(aria-current='page', href='#') Home
-            |             
-            li.nav-item
-              a.nav-link(href='#') Link
-            |             
-            li.nav-item.dropdown
-              a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-bs-toggle='dropdown', aria-expanded='false')
-                | Dropdown
-              |               
-              ul.dropdown-menu(aria-labelledby='navbarDropdown')
-                li
-                  a.dropdown-item(href='#') Action
-                |                 
-                li
-                  a.dropdown-item(href='#') Another action
-                |                 
-                li
-                  hr.dropdown-divider
-                |                 
-                li
-                  a.dropdown-item(href='#') Something else here
-            |             
-            li.nav-item
-              a.nav-link.disabled(href='#', tabindex='-1', aria-disabled='true') Disabled
-          |           
-          form.d-flex
-            input.form-control.me-2(type='search', placeholder='Search', aria-label='Search')
-            |             
-            button.btn.btn-outline-success(type='submit') Search
-    |     
-    ul.list-group
-      for item in message
-        li.list-group-item.list-group-item-warning = item
-      else
-        li.list-group-item.list-group-item-warning  sorry, no item!
-    |     
-    ul.nav.nav-pills.nav-fill
-      li.nav-item
-        a.nav-link.active(aria-current='page', href='#') Active
-      |       
-      li.nav-item
-        a.nav-link(href='#') Much longer nav link
-      |       
-      li.nav-item
-        a.nav-link(href='#') Link
-      |       
-      li.nav-item
-        a.nav-link.disabled(href='#', tabindex='-1', aria-disabled='true') Disabled
+        #navbarNavAltMarkup.collapse.navbar-collapse
+          .navbar-nav
+            a.nav-item.nav-link.active(href='http://127.0.0.1:5000/data') Home 
+              span.sr-only
+            a.nav-item.nav-link(href='https://github.com/kuanwei0822/to-do-list' target="_blank") The code 
+            a.nav-item.nav-link(href='https://github.com/kuanwei0822' target="_blank") About
+
+    // 新增 欄框
+    form(action='http://127.0.0.1:5000/data/add', method='POST')
+      .container.addinput
+        .input-group.mb-3.row
+          input.form-control.col-9(type='text', placeholder="event", aria-label="Recipient's username with two button addons" name="inputdata")
+          button.btn.btn-outline-secondary.col-3(type="submit") Add event
+
+    // 顯示資料庫資料 - index.pug 檔
+    .container.messageAllData
+      ul.list-group.row
+        block content
+
+    // footer區塊
+    footer.bg-light.text-center.text-lg-start
+      .text-center.p-3(style='background-color: rgba(0, 0, 0, 0.2)') &copy 2020 Copyright：
+        a.text-dark(href='https://github.com/kuanwei0822' target="_blank") github.com/kuanwei0822
+
+    // Bootstrap 連結
     // Optional JavaScript; choose one of the two!
     // Option 1: Bootstrap Bundle with Popper
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js', integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW', crossorigin='anonymous')

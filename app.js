@@ -1,41 +1,23 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");		// actions.js 中 POST 需要使用到
+app.use(bodyParser.urlencoded({ extended: false }));
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const actions = require("./routes/actions") 	// ./ 表示當前路徑，引入 actions 檔案(處理路由)
 
-var app = express();
+app.use(express.static('public'));		// 引入靜態檔案
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set("view engine","pug");		// app 中設定 樣板引擎種類
+app.set("views",'./views');			// 第一個 views 為固定字，./views 為指定的目錄(樣版資料夾)
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/data",actions)						// app.use 載入自定義的模組
+// 載入之後 actions 這個檔案會幫我處理以下事情
+// app.get('/', function (req, res) {
+//     res.render('index');  // render: 渲染網頁
+// });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+ 
+var server = app.listen(5000, function () {
+    console.log('Node server is running..');
 });
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;

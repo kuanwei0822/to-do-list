@@ -1,8 +1,66 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.addinput{
+	margin-top:30px;
+	margin-bottom:30px;
+	padding:0;
+}
+.headTopic{
+	margin-left:20px;
+}
+.input-group{
+	margin:0;
+}
+.messageAllData{
+	margin-bottom:20px;
+}
+.content{
+	display:inline-block;
+	margin-bottom:0;
+}
+.content.disappear{
+	display:none;
+}
+.messageButton{
+	width:23px;
+	height:23px;
+	padding:1px;
+	margin-left:16px;
+	float:right;
+}
+.messageButton.disappear{
+	display:none;
+}
+.messageButton:hover{
+	cursor:pointer;
+}
+.messageButton img{
+	width:100%;
+}
+.updataInput{
+	display:inline-block;
+	background:rgba(0,0,0,0);
+	border-radius: 3px;
+	border: 1px solid rgba(0,0,0,.25);
+}
+.updataInput.disappear{
+	display:none;
+}
+.updataButton{
+	display:inline-block;
+	width:26px;
+	height:26px;
+	padding:1px;
+	margin-left:12px;
+}
+.updataButton.disappear{
+	display:none;
+}
+.updataButton:hover{
+	cursor:pointer;
+}
+.updataButton img{
+	width:100%;
+}
+footer a{
+	text-decoration:none;
 }
 
-a {
-  color: #00B7FF;
-}
