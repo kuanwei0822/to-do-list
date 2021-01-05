@@ -8,13 +8,6 @@
 
 資料庫: MongoDB 
 
-List :
-![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img1.bmp)
-
-編輯 list:
-![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img2.bmp)
-![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img3.bmp)
-
 進度: 
 - [x] Node.js 環境 + express 套件
 - [x] Server 端 POST、GET 功能
@@ -28,3 +21,10 @@ List :
 額外功能 To do:
 - [ ] Events 可以編排位置，並設置重要程度
 - [ ] 新增時間註記
+
+List :
+![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img1.bmp)
+
+編輯 list:
+![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img2.bmp)
+![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img3.bmp)
