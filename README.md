@@ -27,3 +27,4 @@ List :
 
 編輯 list:
 ![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img2.bmp)
+![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img3.bmp)
