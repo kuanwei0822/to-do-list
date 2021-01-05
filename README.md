@@ -8,6 +8,13 @@
 
 資料庫: MongoDB 
 
+List :
+![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img1.bmp)
+
+編輯 list:
+![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img2.bmp)
+![image](https://github.com/kuanwei0822/to-do-list/blob/master/README_img/EX_img3.bmp)
+
 進度: 
 - [x] Node.js 環境 + express 套件
 - [x] Server 端 POST、GET 功能
