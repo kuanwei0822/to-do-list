@@ -43,7 +43,7 @@ router.get("/",function(req, res){	// 首頁 + 載入全部資料 1 完成
 })
 
 
-router.post("/add",function(req, res){	// 資料庫 新增資料 2 完成(空白防呆)
+router.post("/add",function(req, res){	// 資料庫 新增資料 2 完成
 	console.log("req.body.inputdata = ",req.body.inputdata)
 	mongo.connect("mongodb://localhost:27017/mymondb",function (err,client){
 		if(err){throw err;};
@@ -73,10 +73,6 @@ router.post("/add",function(req, res){	// 資料庫 新增資料 2 完成(空白
 		console.log('Document add Successfully');
 		client.close(); //關閉連線
 	});
-})
-
-router.get("/search",function(req, res){	// 資料庫 關鍵字查尋 3
-
 })
 
 router.post("/updata",function(req, res){	// 資料庫 更改資料 4 完成
@@ -142,24 +138,6 @@ router.post("/delete",function(req, res){	// 資料庫 刪除資料 5 完成
 		client.close(); //關閉連線
 	});
 })
-
-router.get("/find",function(req, res){	// 資料庫找到資料
-	mongo.connect("mongodb://localhost:27017/mymondb",function (err,client){
-		if(err){throw err;};
-
-		const db = client.db("test");
-		
-		db.collection('Persons',function(err,col){
-			col.find({firstName:"aaa"}).toArray(function(err,fd){
-				console.log("findData=",fd);
-			});
-		})
-	
-		console.log("find!");
-		client.close(); //關閉連線
-	});
-})
-
 
 
 router.post("/getid",function(req, res){	// 每次 render 都會取得 id & Message 完成
