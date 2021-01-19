@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	// console.log("getid start");
+	// 將資料庫內部每個項目的 id 、 message 帶入到按鈕的自定義屬性
 
 	var global_todomessage = [];
 	var global_todoId = [];
